@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&family=Poiret+One&display=swap');
+
+
+
+
+
+.mainAboutContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.textContainer {
+    margin-top: 5em;
+    width: 60vw;
+}
+
+
+h1,
+h2,
+p {
+    padding: 1em;
+
+}
+
+h1 {
+    font-size: clamp(1.4rem, 1.9vw, 3rem);
+
+
+}
+
+.mainAboutContainer h1,
+.mainAboutContainer h2 {
+    text-transform: uppercase;
+    text-align: center;
+
+    font-family: 'Eczar', serif;
+
+    font-weight: 500;
+
+}
+
+p {
+    font-size: clamp(1rem, 1.1vw, 3rem);
+}

@@ -1,0 +1,68 @@
+import React, { useState } from 'react'
+import styles from '../styles/loginModal.module.css';
+import useSignup from '../hooks/useSignup'
+import { useNavigate } from 'react-router-dom';
+
+
+export default function SignUp() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
+    const [fname, setFname] = useState('');
+    const navigate = useNavigate();
+
+    const { errors, signup, isLoading } = useSignup()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        signup(fname, email, password, passwordConfirm)
+        navigate('/');
+    }
+    return (
+        <div className={styles.modalBackground}>
+
+
+            <div className={styles.loginModalContainer} >
+                <form onSubmit={handleSubmit} className={styles.signUpModalContainer}>
+                    <input
+                        type="text"
+                        required
+                        onChange={(e) => setFname(e.target.value)}
+                        value={fname}
+                        placeholder="Fullname"
+                        id="fname" />
+
+
+                    <input
+                        type="email"
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        placeholder="E-mail"
+                        id="email" />
+                    <input
+                        required
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        placeholder="Password" id="password" />
+
+                    <input
+                        required
+                        type="password"
+                        onChange={(e) => setPasswordConfirm(e.target.value)}
+                        value={passwordConfirm}
+                        placeholder="Password Confirmation" id="passwordConfirm" />
+                    <button disabled={isLoading}>Sign Up</button>
+                    {errors.length > 0 && <ul>{errors.map((error, idx) => <li key={idx} className='errorMessage'>{error.msg}</li>)}</ul>}
+                </form>
+
+            </div>
+        </div>
+
+
+    )
+}
+
+

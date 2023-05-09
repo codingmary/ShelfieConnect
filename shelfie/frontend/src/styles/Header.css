@@ -1,0 +1,256 @@
+.headerContainer {
+    width: 100vw;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* background-image: url(../img/headerBck2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
+
+
+}
+
+.topWrapper {
+    width: 100%;
+    display: flex;
+}
+
+
+
+.logo {
+    width: 120px;
+    height: 100px;
+    display: inline;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-left: 1.4em;
+}
+
+.hamburger {
+    margin-top: 1.5em;
+    margin-right: 1em;
+    cursor: pointer;
+    font-size: 3em;
+
+
+}
+
+.hiddenHamburger {
+    display: none;
+
+}
+
+.navbar {
+    position: absolute;
+    transition: 1s ease;
+    top: -1000%;
+}
+
+.activeNavbar {
+    background: radial-gradient(ellipse at 50% 50%, rgba(18, 70, 110, 1) 10%, rgba(18, 70, 110, 1) 19%, rgba(0, 0, 0, 1) 100%);
+    position: absolute;
+    transition: 1s ease;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+
+
+
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    gap: .5em;
+}
+
+.links a {
+    text-decoration: none;
+    padding: .5em;
+    /* margin-left: 16px; */
+    color: #FFF;
+    /* letter-spacing: .1ch; */
+    font-size: clamp(1rem, 0.7153rem + 1.6368vw, 1.2rem);
+    font-size: 1.3rem;
+    margin-block: 2.5rem;
+    border-bottom: 2px solid #fff;
+}
+
+.menuIcon {
+    margin-left: auto;
+    margin-top: .5em;
+    margin-right: .5em;
+    font-size: 2.5em;
+
+}
+
+.closed {
+    width: 100%;
+
+
+}
+
+.close {
+    display: block;
+    /* margin: 0 auto; */
+    font-size: 2em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: .8em;
+    color: #FFF;
+
+}
+
+.loginBtn {
+    background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC 51%, #02AAB0 100%);
+    /* margin: 10px; */
+    margin: 3em;
+    padding: 15px 45px;
+    text-align: center;
+
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 4px #eee;
+    border-radius: 20px;
+    display: block;
+}
+
+button:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.hiddenLogin {
+    display: none;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 1em;
+}
+
+
+@media screen and (min-width:950px) {
+    .headerContainer {
+
+        justify-content: flex-end;
+
+
+    }
+
+    .logo {
+        width: 150px;
+        height: 120px;
+    }
+
+
+    .hamburger {
+
+        margin-right: 1.5em;
+
+    }
+
+
+
+    .activeNavbar {
+
+
+        background: transparent;
+        height: 80vh;
+        width: 20%;
+        top: 20%;
+
+
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+        gap: 1.5em;
+    }
+
+    .links a {
+        text-decoration: none;
+        padding: .5em;
+        /* margin-left: 16px; */
+        color: #FFF;
+        /* letter-spacing: .1ch; */
+        font-size: clamp(1rem, 0.7153rem + 1.6368vw, 1.2rem);
+        font-size: 1.3rem;
+        margin-block: 2.5rem;
+        border-bottom: 2px solid #fff;
+    }
+
+    .menuIcon {
+        margin-left: auto;
+        margin-top: .5em;
+        margin-right: .5em;
+        font-size: 2.5em;
+
+    }
+
+    .closed {
+        width: 100%;
+
+
+    }
+
+    .close {
+        display: block;
+        /* margin: 0 auto; */
+        font-size: 2em;
+        margin-bottom: 1em;
+        margin-left: auto;
+        margin-right: .8em;
+        color: #FFF;
+
+    }
+
+    .loginBtn {
+        background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC 51%, #02AAB0 100%);
+        /* margin: 10px; */
+        margin: 3em;
+        padding: 15px 45px;
+        text-align: center;
+
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 0 4px #eee;
+        border-radius: 20px;
+        display: block;
+    }
+
+    button:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+
+    .hiddenLogin {
+        display: none;
+    }
+
+    .loginContainer {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        gap: 1em;
+    }
+}

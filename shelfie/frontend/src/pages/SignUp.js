@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styles from '../styles/loginModal.module.css';
 import useSignup from '../hooks/useSignup'
-import { useNavigate } from 'react-router-dom';
+
+
 
 
 export default function SignUp() {
@@ -10,14 +11,14 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [fname, setFname] = useState('');
-    const navigate = useNavigate();
+
 
     const { errors, signup, isLoading } = useSignup()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        signup(fname, email, password, passwordConfirm)
-        navigate('/');
+        await signup(fname, email, password, passwordConfirm)
+
     }
     return (
         <div className={styles.modalBackground}>

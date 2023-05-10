@@ -41,7 +41,7 @@ const UserSchema = new mongoose.Schema({
 
     profilePic: {
         type: String,
-        default: ""
+        default: "../images/default_profile.png"
     },
     passwordResetToken: String,
     passwordResetExpires: Date,

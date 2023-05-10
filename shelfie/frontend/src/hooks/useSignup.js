@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuthContext } from './useAuthContext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -8,7 +9,8 @@ import axios from 'axios';
 export default function useSignup() {
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(null);
-    const { dispatch } = useAuthContext()
+    const { dispatch } = useAuthContext();
+    const navigate = useNavigate();
 
 
     const signup = async (fname, email, password, passwordConfirm) => {
@@ -18,13 +20,18 @@ export default function useSignup() {
 
         try {
             //signup user
-            const response = await axios.post('http://localhost:3000/users/signup', JSON.stringify({ fname, email, password, passwordConfirm }), { headers: { 'Content-Type': 'application/json' } })
-            // console.log(response)
-            if (response.status === 200) {
+            const response = await axios({
+                method: "POST",
+                url: 'http://localhost:3000/users/signup',
+                data: { fname, email, password, passwordConfirm },
+                withCredentials: true,
+            });
+
+            if (response.status === 201) {
                 setIsLoading(false);
-                alert(response.data.message)
-                localStorage.setItem('user', JSON.stringify(response));
                 dispatch({ type: 'LOGIN', payload: response });
+                navigate('/');
+                alert(`Hey, ${response.data.data.user.fname}! Welcome to Shelfie!`)
             }
         } catch (err) {
             console.log(err.response)

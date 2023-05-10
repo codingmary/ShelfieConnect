@@ -2,17 +2,23 @@ import React, { useState } from 'react'
 import styles from '../styles/loginModal.module.css'
 import { NavLink } from 'react-router-dom'
 import useLogin from '../hooks/useLogin';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function LoginModal({ setModalActiveLogin }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { error, login } = useLogin()
+    const { error, login, isLoading } = useLogin()
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        login(email, password)
+        await login(email, password);
+        navigate('/bookshelf');
     }
+
     return (
         <div className={styles.modalBackground}>
             <div className={styles.loginModalContainer}>
@@ -34,7 +40,7 @@ export default function LoginModal({ setModalActiveLogin }) {
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                             placeholder="Password" id="password" />
-                        <button>Login</button>
+                        <button disabled={isLoading}>Login</button>
                         {error && <p>{error}</p>}
                     </form>
                     <div className={styles.register}>

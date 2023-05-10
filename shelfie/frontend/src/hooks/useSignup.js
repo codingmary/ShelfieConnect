@@ -22,7 +22,7 @@ export default function useSignup() {
             //signup user
             const response = await axios({
                 method: "POST",
-                url: 'http://localhost:3000/users/signup',
+                url: 'https://shelfiebackend.onrender.com/users/signup',
                 data: { fname, email, password, passwordConfirm },
                 withCredentials: true,
             });
